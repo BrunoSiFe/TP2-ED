@@ -1,3 +1,5 @@
+#include <iostream>
+#include <cstdlib.h>
 #define Troca(A, B) {Planeta c = A; A = B; B = c; }
 #include "headers2/planeta.hpp"
 
