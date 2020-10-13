@@ -58,7 +58,7 @@ int main() {
 
     Planeta planeta = Planeta();
 
-    for(int i =0;i<quantidadePlanetas;i++){
+    for(int i=0;i<quantidadePlanetas;i++){
 
         std::cin >> nomePlaneta;
         std::cin >> distanciaPlaneta;
