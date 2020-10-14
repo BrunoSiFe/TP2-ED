@@ -2,8 +2,8 @@
 
 CC=g++
 CFLAGS=-Wall -Wextra -g
-EXEC=./algoritmoImperialSelect 
-TMPOUT=algoritmoImperialSelect.testresult
+EXEC=./algoritmoRebeldeQuick 
+TMPOUT=algoritmoRebeldeQuick.testresult
 
 # === REGRAS =====
 # ================
@@ -27,8 +27,8 @@ TMPOUT=algoritmoImperialSelect.testresult
 # CMD sao os comandos necessarios para executar a regra (por exemplo, chamar o
 # gcc)
 
-$(EXEC): algoritmoImperialSelect.cpp  planeta.o
-	$(CC) $(CFLAGS) algoritmoImperialSelect.cpp planeta.o -o $(EXEC)
+$(EXEC): algoritmoRebeldeQuick.cpp  planeta.o
+	$(CC) $(CFLAGS) algoritmoRebeldeQuick.cpp planeta.o -o $(EXEC)
 
 planeta.o: planeta.cpp
 	$(CC) $(CFLAGS) -c planeta.cpp -o planeta.o
