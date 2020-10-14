@@ -13,8 +13,8 @@ void partirVetor(int esquerda, int direita,
     planetaAuxiliar1 = vetorPlanetas[(*i + *j)/2];
     do{
 
-        while ((planetaAuxiliar1.getDistanciaPlaneta() > vetorPlanetas[*i].getDistanciaPlaneta()) || (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*i].getDistanciaPlaneta() && planetaAuxiliar1.getPopulacaoPlaneta() > vetorPlanetas[*i].getPopulacaoPlaneta())) (*i)++;
-        while ((planetaAuxiliar1.getDistanciaPlaneta() < vetorPlanetas[*j].getDistanciaPlaneta()) || (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*j].getDistanciaPlaneta() && planetaAuxiliar1.getDistanciaPlaneta() < vetorPlanetas[*j].getPopulacaoPlaneta())) (*j)--;
+        while ((planetaAuxiliar1.getDistanciaPlaneta() > vetorPlanetas[*i].getDistanciaPlaneta()) || (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*i].getDistanciaPlaneta() && planetaAuxiliar1.getPopulacaoPlaneta() < vetorPlanetas[*i].getPopulacaoPlaneta())) (*i)++;
+        while ((planetaAuxiliar1.getDistanciaPlaneta() < vetorPlanetas[*j].getDistanciaPlaneta()) || (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*j].getDistanciaPlaneta() && planetaAuxiliar1.getPopulacaoPlaneta() > vetorPlanetas[*j].getPopulacaoPlaneta())) (*j)--;
         
         if (*i <= *j){
             planetaAuxiliar2 = vetorPlanetas[*i];
