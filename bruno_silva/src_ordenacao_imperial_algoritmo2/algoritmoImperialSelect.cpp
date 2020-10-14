@@ -9,14 +9,14 @@ void ordenarVetor(Planeta vetorPlanetas[],int quantidadePlanetas){
     int min =0;
     for(int i=0;i<quantidadePlanetas-1;i++){
         min = i;
-        for(int j=i-1;j<quantidadePlanetas;j++){
+        for(int j=i+1;j<quantidadePlanetas;j++){
 
             if(vetorPlanetas[j].getDistanciaPlaneta() > vetorPlanetas[min].getDistanciaPlaneta()){
                 Troca(vetorPlanetas[j],vetorPlanetas[min]);
 
             }else if(vetorPlanetas[j].getDistanciaPlaneta() == vetorPlanetas[min].getDistanciaPlaneta()){
                 if(vetorPlanetas[j].getPopulacaoPlaneta() < vetorPlanetas[min].getPopulacaoPlaneta()){
-                    Troca(vetorPlanetas[min],vetorPlanetas[j]);
+                    Troca(vetorPlanetas[j],vetorPlanetas[min]);
                 }
             }
 

@@ -33,7 +33,7 @@ void merge(int esquerda,int meio,int direita, Planeta vetorPlanetas[]){
                 indiceDireita++;
             }
         }else{
-            if(vetorPlanetasEsquerda[indiceEsquerda].getPopulacaoPlaneta() < vetorPlanetasDireita[indiceDireita].getPopulacaoPlaneta()){
+            if(vetorPlanetasEsquerda[indiceEsquerda].getDistanciaPlaneta() < vetorPlanetasDireita[indiceDireita].getDistanciaPlaneta()){
                 vetorPlanetas[indiceMerge]=vetorPlanetasEsquerda[indiceEsquerda];
                 indiceEsquerda++;
             }else{
