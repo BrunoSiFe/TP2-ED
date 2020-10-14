@@ -15,7 +15,7 @@ void ordenarVetor(Planeta vetorPlanetas[],int quantidadePlanetas){
                 Troca(vetorPlanetas[j],vetorPlanetas[min]);
 
             }else if(vetorPlanetas[j].getDistanciaPlaneta() == vetorPlanetas[min].getDistanciaPlaneta()){
-                if(vetorPlanetas[j].getPopulacaoPlaneta() > vetorPlanetas[min].getPopulacaoPlaneta()){
+                if(vetorPlanetas[j].getPopulacaoPlaneta() < vetorPlanetas[min].getPopulacaoPlaneta()){
                     Troca(vetorPlanetas[j],vetorPlanetas[min]);
                 }
             }

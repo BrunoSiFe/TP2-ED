@@ -6,10 +6,10 @@ using namespace TP;
 
 void merge(int esquerda,int meio,int direita, Planeta vetorPlanetas[]){
     int quantidadeValoresEsquerda = meio-esquerda+1;
-    int quantidadeValoresDireita = fim - meio;
+    int quantidadeValoresDireita = direita - meio;
 
-    Planeta *vetorPlanetasEsquerda = new Planetas[quantidadeValoresEsquerda];
-    Planeta *vetorPlanetasDireita = new Planetas[quantidadeValoresDireita];
+    Planeta *vetorPlanetasEsquerda = new Planeta[quantidadeValoresEsquerda];
+    Planeta *vetorPlanetasDireita = new Planeta[quantidadeValoresDireita];
 
     for(int i=0;i<quantidadeValoresEsquerda;i++){
         vetorPlanetasEsquerda[i]=vetorPlanetas[esquerda+i];
