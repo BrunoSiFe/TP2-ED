@@ -90,7 +90,7 @@ int main() {
     
     std::cin >> quantidadePlanetas;
     
-    Planeta *vetorPlanetas = new Planetas[quantidadePlanetas];
+    Planeta *vetorPlanetas = new Planeta[quantidadePlanetas];
 
     Planeta planeta = Planeta();
 
