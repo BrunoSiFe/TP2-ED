@@ -1,64 +1,82 @@
 #include <iostream>
 #include <stdlib.h>
-#define Troca(A, B) {Planeta c = A; A = B; B = c; }
+#define Troca(A, B)    \
+    {                  \
+        Planeta c = A; \
+        A = B;         \
+        B = c;         \
+    }
 #include "headers/planeta.hpp"
 using namespace TP;
 
 void partirVetor(int esquerda, int direita,
-    int *i, int *j, Planeta vetorPlanetas[]){
+                 int *i, int *j, Planeta vetorPlanetas[])
+{
 
     Planeta planetaAuxiliar1, planetaAuxiliar2;
-    *i = esquerda; 
+    *i = esquerda;
     *j = direita;
-    planetaAuxiliar1 = vetorPlanetas[(*i + *j)/2];
-    do{
+    planetaAuxiliar1 = vetorPlanetas[(*i + *j) / 2];
+    do
+    {
 
-        while ((planetaAuxiliar1.getDistanciaPlaneta() > vetorPlanetas[*i].getDistanciaPlaneta()) || (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*i].getDistanciaPlaneta() && planetaAuxiliar1.getPopulacaoPlaneta() < vetorPlanetas[*i].getPopulacaoPlaneta())) (*i)++;
-        while ((planetaAuxiliar1.getDistanciaPlaneta() < vetorPlanetas[*j].getDistanciaPlaneta()) || (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*j].getDistanciaPlaneta() && planetaAuxiliar1.getPopulacaoPlaneta() > vetorPlanetas[*j].getPopulacaoPlaneta())) (*j)--;
-        
-        if (*i <= *j){
+        while ((planetaAuxiliar1.getDistanciaPlaneta() > vetorPlanetas[*i].getDistanciaPlaneta()) || (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*i].getDistanciaPlaneta() && planetaAuxiliar1.getPopulacaoPlaneta() < vetorPlanetas[*i].getPopulacaoPlaneta()))
+            (*i)++;
+        while ((planetaAuxiliar1.getDistanciaPlaneta() < vetorPlanetas[*j].getDistanciaPlaneta()) || (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*j].getDistanciaPlaneta() && planetaAuxiliar1.getPopulacaoPlaneta() > vetorPlanetas[*j].getPopulacaoPlaneta()))
+            (*j)--;
+
+        if (*i <= *j)
+        {
             planetaAuxiliar2 = vetorPlanetas[*i];
-            vetorPlanetas[*i] = vetorPlanetas[*j]; 
+            vetorPlanetas[*i] = vetorPlanetas[*j];
             vetorPlanetas[*j] = planetaAuxiliar2;
-        (*i)++; 
-        (*j)--;
+            (*i)++;
+            (*j)--;
         }
 
     } while (*i <= *j);
 }
 
-void ordenarVetor(int esquerda, int direita,Planeta vetorPlanetas[]){
-    int i,j;
+void ordenarVetor(int esquerda, int direita, Planeta vetorPlanetas[])
+{
+    int i, j;
     partirVetor(esquerda, direita, &i, &j, vetorPlanetas);
-    if (esquerda < j) ordenarVetor(esquerda, j, vetorPlanetas);
-    if (i < direita) ordenarVetor(i, direita, vetorPlanetas);
-
-
+    if (esquerda < j)
+        ordenarVetor(esquerda, j, vetorPlanetas);
+    if (i < direita)
+        ordenarVetor(i, direita, vetorPlanetas);
 }
 
-void printarVetor(Planeta vetorPlanetas[],int quantidadePlanetas){
-    
-    for(int i =0;i<quantidadePlanetas;i++){
+void printarVetor(Planeta vetorPlanetas[], int quantidadePlanetas)
+{
 
-        std::cout << vetorPlanetas[i].getNomePlaneta() << " " << vetorPlanetas[i].getDistanciaPlaneta() <<" " << vetorPlanetas[i].getPopulacaoPlaneta() << std::endl;
+    for (int i = 0; i < quantidadePlanetas; i++)
+    {
 
+        std::cout << vetorPlanetas[i].getNomePlaneta() << " " << vetorPlanetas[i].getDistanciaPlaneta() << " " << vetorPlanetas[i].getPopulacaoPlaneta() << std::endl;
     }
 }
 
-int main() {
+int main()
+{
+
+    time_t start, end;
+
+    time(&start);
 
     int quantidadePlanetas = 0;
     std::string nomePlaneta = "";
     int distanciaPlaneta = 0;
     int populacaoPlaneta = 0;
-    
+
     std::cin >> quantidadePlanetas;
-    
+
     Planeta *vetorPlanetas = new Planeta[quantidadePlanetas];
 
     Planeta planeta = Planeta();
 
-    for(int i=0;i<quantidadePlanetas;i++){
+    for (int i = 0; i < quantidadePlanetas; i++)
+    {
 
         std::cin >> nomePlaneta;
         std::cin >> distanciaPlaneta;
@@ -69,12 +87,18 @@ int main() {
         planeta.setPopulacaoPlaneta(populacaoPlaneta);
 
         vetorPlanetas[i] = planeta;
-
     }
 
-    ordenarVetor(0,quantidadePlanetas-1,vetorPlanetas);
+    ordenarVetor(0, quantidadePlanetas - 1, vetorPlanetas);
 
-    printarVetor(vetorPlanetas,quantidadePlanetas);
+    printarVetor(vetorPlanetas, quantidadePlanetas);
+
+    time(&end);
+
+    double time_taken = double(end - start);
+    std::cout << "Time taken by program is : " << std::fixed
+              << time_taken;
+    std::cout << " sec " << std::endl;
 
     return 0;
 }

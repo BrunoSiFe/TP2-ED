@@ -1,52 +1,68 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
-#define Troca(A, B) {Planeta c = A; A = B; B = c; }
+#define Troca(A, B)    \
+    {                  \
+        Planeta c = A; \
+        A = B;         \
+        B = c;         \
+    }
 #include "headers/planeta.hpp"
 
 using namespace TP;
 
-void ordenarVetor(Planeta vetorPlanetas[],int quantidadePlanetas){
-    for(int i=0;i<quantidadePlanetas-1;i++){
-        for(int j=quantidadePlanetas-1;j>i;j--){
+void ordenarVetor(Planeta vetorPlanetas[], int quantidadePlanetas)
+{
+    for (int i = 0; i < quantidadePlanetas - 1; i++)
+    {
+        for (int j = quantidadePlanetas - 1; j > i; j--)
+        {
 
-            if(vetorPlanetas[j-1].getDistanciaPlaneta() > vetorPlanetas[j].getDistanciaPlaneta()){
-                Troca(vetorPlanetas[j-1],vetorPlanetas[j]);
-
-            }else if(vetorPlanetas[j-1].getDistanciaPlaneta() == vetorPlanetas[j].getDistanciaPlaneta()){
-                if(vetorPlanetas[j-1].getPopulacaoPlaneta() < vetorPlanetas[j].getPopulacaoPlaneta()){
-                    Troca(vetorPlanetas[j-1],vetorPlanetas[j]);
+            if (vetorPlanetas[j - 1].getDistanciaPlaneta() > vetorPlanetas[j].getDistanciaPlaneta())
+            {
+                Troca(vetorPlanetas[j - 1], vetorPlanetas[j]);
+            }
+            else if (vetorPlanetas[j - 1].getDistanciaPlaneta() == vetorPlanetas[j].getDistanciaPlaneta())
+            {
+                if (vetorPlanetas[j - 1].getPopulacaoPlaneta() < vetorPlanetas[j].getPopulacaoPlaneta())
+                {
+                    Troca(vetorPlanetas[j - 1], vetorPlanetas[j]);
                 }
             }
-
         }
     }
-
 }
 
-void printarVetor(Planeta vetorPlanetas[],int quantidadePlanetas){
-    
-    for(int i =0;i<quantidadePlanetas;i++){
+void printarVetor(Planeta vetorPlanetas[], int quantidadePlanetas)
+{
 
-        std::cout << vetorPlanetas[i].getNomePlaneta() << " " << vetorPlanetas[i].getDistanciaPlaneta() <<" " << vetorPlanetas[i].getPopulacaoPlaneta() << std::endl;
+    for (int i = 0; i < quantidadePlanetas; i++)
+    {
 
+        std::cout << vetorPlanetas[i].getNomePlaneta() << " " << vetorPlanetas[i].getDistanciaPlaneta() << " " << vetorPlanetas[i].getPopulacaoPlaneta() << std::endl;
     }
 }
 
-int main() {
+int main()
+{
+
+    time_t start, end;
+
+    time(&start);
 
     int quantidadePlanetas = 0;
     std::string nomePlaneta = "";
     int distanciaPlaneta = 0;
     int populacaoPlaneta = 0;
-    
+
     std::cin >> quantidadePlanetas;
-    
+
     Planeta *vetorPlanetas = new Planeta[quantidadePlanetas];
 
     Planeta planeta = Planeta();
 
-    for(int i =0;i<quantidadePlanetas;i++){
+    for (int i = 0; i < quantidadePlanetas; i++)
+    {
 
         std::cin >> nomePlaneta;
         std::cin >> distanciaPlaneta;
@@ -57,12 +73,18 @@ int main() {
         planeta.setPopulacaoPlaneta(populacaoPlaneta);
 
         vetorPlanetas[i] = planeta;
-
     }
 
-    ordenarVetor(vetorPlanetas,quantidadePlanetas);
+    ordenarVetor(vetorPlanetas, quantidadePlanetas);
 
-    printarVetor(vetorPlanetas,quantidadePlanetas);
+    printarVetor(vetorPlanetas, quantidadePlanetas);
+
+    time(&end);
+
+    double time_taken = double(end - start);
+    std::cout << "Time taken by program is : " << std::fixed
+              << time_taken;
+    std::cout << " sec " << std::endl;
 
     return 0;
 }

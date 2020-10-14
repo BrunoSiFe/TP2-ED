@@ -103,6 +103,10 @@ void printarVetor(Planeta vetorPlanetas[], int quantidadePlanetas)
 int main()
 {
 
+    time_t start, end;
+
+    time(&start);
+
     int quantidadePlanetas = 0;
     std::string nomePlaneta = "";
     int distanciaPlaneta = 0;
@@ -131,6 +135,13 @@ int main()
     ordenarVetor(0, quantidadePlanetas - 1, vetorPlanetas);
 
     printarVetor(vetorPlanetas, quantidadePlanetas);
+
+    time(&end);
+
+    double time_taken = double(end - start);
+    std::cout << "Time taken by program is : " << std::fixed
+              << time_taken;
+    std::cout << " sec " << std::endl;
 
     return 0;
 }
