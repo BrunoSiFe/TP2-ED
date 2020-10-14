@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstdlib.h>
+#include <stdlib.h>
 #define Troca(A, B) {Planeta c = A; A = B; B = c; }
 #include "headers/planeta.hpp"
 using namespace TP;
@@ -9,7 +9,7 @@ void partirVetor(int Esq, int Dir,
 
     Planeta planetaAuxiliar1, planetaAuxiliar2;
     *i = Esq; *j = Dir;
-    planetaAuxiliar1 = vetorPlanetas[(*i + *j)/2]; /* obtem o pivo x */
+    planetaAuxiliar1 = vetorPlanetas[(*i + *j)/2];
     do{
 
         while ((planetaAuxiliar1.getDistanciaPlaneta() > vetorPlanetas[*i].getDistanciaPlaneta())|| (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*i].getDistanciaPlaneta() && planetaAuxiliar1.getPopulacaoPlaneta() > vetorPlanetas[*i].getPopulacaoPlaneta() )) (*i)++;
@@ -52,7 +52,7 @@ int main() {
     
     std::cin >> quantidadePlanetas;
     
-    Planeta vetorPlanetas[quantidadePlanetas];
+    Planeta *vetorPlanetas = new Planetas[quantidadePlanetas];
 
     Planeta planeta = Planeta();
 

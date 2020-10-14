@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstdlib>
+#include <stdlib.h>
 #include <string>
 #define Troca(A, B) {Planeta c = A; A = B; B = c; }
 #include "headers/planeta.hpp"
@@ -42,7 +42,7 @@ int main() {
     
     std::cin >> quantidadePlanetas;
     
-    Planeta vetorPlanetas[quantidadePlanetas];
+    Planeta *vetorPlanetas = new Planetas[quantidadePlanetas];
 
     Planeta planeta = Planeta();
 
