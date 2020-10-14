@@ -4,15 +4,16 @@
 #include "headers/planeta.hpp"
 using namespace TP;
 
-void partirVetor(int Esq, int Dir,
+void partirVetor(int esquerda, int direita,
     int *i, int *j, Planeta vetorPlanetas[]){
 
     Planeta planetaAuxiliar1, planetaAuxiliar2;
-    *i = Esq; *j = Dir;
+    *i = esquerda; 
+    *j = direita;
     planetaAuxiliar1 = vetorPlanetas[(*i + *j)/2];
     do{
 
-        while ((planetaAuxiliar1.getDistanciaPlaneta() > vetorPlanetas[*i].getDistanciaPlaneta()) || (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*j].getDistanciaPlaneta() && planetaAuxiliar1.getPopulacaoPlaneta() < vetorPlanetas[*i].getPopulacaoPlaneta())) (*i)++;
+        while ((planetaAuxiliar1.getDistanciaPlaneta() > vetorPlanetas[*i].getDistanciaPlaneta()) || (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*i].getDistanciaPlaneta() && planetaAuxiliar1.getPopulacaoPlaneta() < vetorPlanetas[*i].getPopulacaoPlaneta())) (*i)++;
         while ((planetaAuxiliar1.getDistanciaPlaneta() < vetorPlanetas[*j].getDistanciaPlaneta()) || (planetaAuxiliar1.getDistanciaPlaneta() == vetorPlanetas[*j].getDistanciaPlaneta() && planetaAuxiliar1.getDistanciaPlaneta() > vetorPlanetas[*j].getPopulacaoPlaneta())) (*j)--;
         
         if (*i <= *j){
