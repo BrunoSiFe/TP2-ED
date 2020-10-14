@@ -26,10 +26,12 @@ void partirVetor(int Esq, int Dir,
 }
 
 void ordenarVetor(int esquerda, int direita,Planeta vetorPlanetas[]){
-    int i,j;
-    partirVetor(esquerda, direita, &i, &j, vetorPlanetas);
-    if (esquerda < j) ordenarVetor(esquerda, j, vetorPlanetas);
-    if (i < direita) ordenarVetor(i, direita, vetorPlanetas);
+    int meio =0;
+    if(esquerda<direita){
+        meio=(esquerda+direita)/2;
+        
+    }
+    
 
 
 }
