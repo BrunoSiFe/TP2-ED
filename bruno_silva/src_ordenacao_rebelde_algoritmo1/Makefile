@@ -2,8 +2,8 @@
 
 CC=g++
 CFLAGS=-Wall -Wextra -g
-EXEC=./algoritmoRebeldeQuick 
-TMPOUT=algoritmoRebeldeQuick.testresult
+EXEC=./tp2 
+TMPOUT=tp2.testresult
 
 # === REGRAS =====
 # ================

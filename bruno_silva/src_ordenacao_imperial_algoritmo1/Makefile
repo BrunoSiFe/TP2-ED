@@ -2,8 +2,8 @@
 
 CC=g++
 CFLAGS=-Wall -Wextra -g
-EXEC=./algoritmoImperialBubble 
-TMPOUT=algoritmoImperialBubble.testresult
+EXEC=./tp2 
+TMPOUT=tp2.testresult
 
 # === REGRAS =====
 # ================
