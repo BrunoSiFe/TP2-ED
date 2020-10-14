@@ -68,8 +68,6 @@ void ordenarVetor(int esquerda, int direita,Planeta vetorPlanetas[]){
         merge(esquerda,meio,direita,vetorPlanetas);
     }
     
-
-
 }
 
 void printarVetor(Planeta vetorPlanetas[],int quantidadePlanetas){
